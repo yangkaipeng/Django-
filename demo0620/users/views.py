@@ -48,7 +48,7 @@ def login(request):
 
 
 # 个人信息展示页面,需要登录才能看到
-@login_required
+# @login_required
 def profile(request, pk):
     print(pk)
     user = get_object_or_404(User, pk=pk)
@@ -56,7 +56,7 @@ def profile(request, pk):
 
 
 # 更改个人信息，同样需要登录
-@login_required
+# @login_required
 def profile_update(request, pk):
     user = get_object_or_404(User, pk=pk)
     user_profile = get_object_or_404(UserProfile, user=user)
@@ -84,14 +84,14 @@ def profile_update(request, pk):
 
 
 # 登出
-@login_required
+# @login_required
 def logout(request):
     auth.logout(request)
     return redirect('users:login')
 
 
 # 修改密码，需登录才行
-@login_required
+# @login_required
 def pwd_change(request, pk):
     user = get_object_or_404(User, pk=pk)
     if request.method == 'POST':

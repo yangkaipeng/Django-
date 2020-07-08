@@ -14,7 +14,11 @@ class UserProfile(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.user
+        """
+        如果return self.user,则会报错
+            __str__ returned non-string (type User)
+        """
+        return self.user.username
 
 
 
