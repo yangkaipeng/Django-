@@ -5,7 +5,7 @@ from django.contrib import auth
 from .forms import RegistrationForm, LoginForm, ProfileForm, PwdChangeForm
 from django.contrib.auth.decorators import login_required
 
-
+#  试试
 # 注册页面
 def regitser(request):
     if request.method == 'POST':
