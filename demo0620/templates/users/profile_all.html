@@ -1,0 +1,13 @@
+{% block content %}
+<h2>员工信息列表</h2>
+
+<ul>
+    <li><h3>姓名</h3></li>
+    {% for u in user %}
+    <li><a href = "{% url 'users:profile' u.id %}">{{u.username}}</a></li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

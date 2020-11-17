@@ -1,16 +1,11 @@
 {% block content %}
 <h2>个人账户信息</h2>
 <ul>
-    <li>用户名: {{ user.username }} </li>
+    <li>姓名: {{ user.username }} </li>
     <li>邮箱: {{ user.email }} </li>
-</ul>
-<h2>My Profile</h2>
-
-<ul>
-    <li>First Name: {{ user.first_name }} </li>
-    <li>Last Name: {{ user.last_name }} </li>
-    <li>Organization: {{ user.profile.org }} </li>
-    <li>Telephone: {{ user.profile.telephone }} </li>
+    <li>企业: {{ user.profile.org }} </li>
+    <li>电话: {{ user.profile.telephone }} </li>
+    <li>密码: {{ user.password }}</li>
 </ul>
 
 {% if user.is_authenticated %}

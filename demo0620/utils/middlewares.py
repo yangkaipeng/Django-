@@ -14,7 +14,9 @@ class AuthMD(MiddlewareMixin):
             if url in urlinfo:
                 # 验证是否处于登录状态
                 if request.user.is_authenticated:
+                    print('在线')
                     return
                 else:
-                    redirect('/users/login/')
+                    print('不在线')
+                    redirect('users:login')
 

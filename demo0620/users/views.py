@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
 from django.contrib.auth.models import User
 from .models import UserProfile
 from django.contrib import auth
@@ -38,7 +38,7 @@ def login(request):
                 # 验证用户信息是否正确
                 if user.is_active:
                     auth.login(request, user)
-                    return redirect('users:profile', pk=user.id)
+                    return redirect('users:view_all')
             else:
                 return render(request, 'users/login.html', {'form': form,
                                                             'message': '用户名或密码错误'})
@@ -112,7 +112,9 @@ def pwd_change(request, pk):
         form = PwdChangeForm()
     return render(request, 'users/pwd_change.html', {'form': form})
 
-
+def view_all(request):
+    userList = get_list_or_404(User)
+    return render(request, 'users/profile_all.html', {'user': userList})
 
 
 
